@@ -61,7 +61,11 @@ app.get('/api/data.json', function(req, res) {
   Tracker.find({
     name: decodeURI(name)
   }).exec(function(err, data) {
-    res.send(data);
+    res.send({
+      error: 0,
+      filter:name,
+      rows: data
+    });
   });
 });
 
